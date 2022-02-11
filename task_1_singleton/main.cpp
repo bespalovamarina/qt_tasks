@@ -1,9 +1,7 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
 #include <QDebug>
-#include <QMetaEnum>
 #include <time.h>
-#include <stdexcept>
 
 #include "abstractcompany.h"
 #include "companyregistry.h"
@@ -63,7 +61,7 @@ void FillCompanyData()
             case 2:
                 firm = QSharedPointer<SocialNetworkCompany>::create(companyName); break;
             default:
-                throw std::runtime_error("FIXME");
+                continue;
             }
             firm->setOwners(QList<QString>() << owners[rand() % owners.size()] << owners[rand() % owners.size()]);
             firm->setCompanyArea(1000 + rand() / 10000.);
@@ -116,8 +114,7 @@ void ListCompaniesByType(AbstractCompany::CompanyType type)
         }
     }
 
-    QMetaEnum metaEnum = QMetaEnum::fromType<AbstractCompany::CompanyType>();
-    GetCompanyGroupStats(metaEnum.valueToKey(type), typeGroup);
+    GetCompanyGroupStats(AbstractCompany::CompanyTypeNames[type], typeGroup);
 }
 
 void ListCompaniesByOwner(const QString& owner)
@@ -144,30 +141,18 @@ void ListStatsForCompanies()
     }
 
     for (auto type: allCompanies.keys()) {
-        QMetaEnum metaEnum = QMetaEnum::fromType<AbstractCompany::CompanyType>();
-        GetCompanyGroupStats(metaEnum.valueToKey(type), allCompanies[type]);
+        GetCompanyGroupStats(AbstractCompany::CompanyTypeNames[type], allCompanies[type]);
     }
 }
 
-} // так ворнинги пропали
+}
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv); // --type 4 --owner Sidorov
+    QCoreApplication a(argc, argv);
 
-    QCommandLineParser parser;
-    parser.addHelpOption();
-
-    QCommandLineOption typeOption(QStringList() << "t" << "type", "company type for listing", QString("numbers 1-%1").arg(AbstractCompany::COMPANY_TYPE_COUNT));
-    parser.addOption(typeOption);
-
-    QCommandLineOption ownerOption(QStringList() << "o" << "owner", "company owner for listing", "some string");
-    parser.addOption(ownerOption);
-
-    parser.process(a);
-
-    int type = parser.value(typeOption).toInt();
-    QString owner = parser.value(ownerOption);
+    int type = 4;
+    const QString owner = "Pupkin";
 
     FillCompanyData();
 
