@@ -6,10 +6,7 @@ CONFIG -= app_bundle
 SOURCES += \
         main.cpp
 
-DESTDIR = $$PWD/../out
-
-SUBDIRS += \
-    factory.pro
+DESTDIR = $PWD/../out
 
 HEADERS += \
     classunit.h \
