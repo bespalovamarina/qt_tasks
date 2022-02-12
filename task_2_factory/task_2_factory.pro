@@ -7,11 +7,14 @@ SOURCES += \
         classunit.cpp \
         cppclassunit.cpp \
         cppmethodunit.cpp \
+        csharpclassunit.cpp \
+        csharpmethodunit.cpp \
         main.cpp
 
 DESTDIR = $$PWD/../out
 
 SUBDIRS += \
+    factory.pro \
     factory.pro \
     factory.pro
 
@@ -22,6 +25,10 @@ HEADERS += \
     cppfactory.h \
     cppmethodunit.h \
     cppprintoperatorunit.h \
+    csharpclassunit.h \
+    csharpfactory.h \
+    csharpmethodunit.h \
+    csharpprintoperatorunit.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h
