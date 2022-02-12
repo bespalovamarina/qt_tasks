@@ -9,11 +9,14 @@ SOURCES += \
         cppmethodunit.cpp \
         csharpclassunit.cpp \
         csharpmethodunit.cpp \
+        javaclassunit.cpp \
+        javamethodunit.cpp \
         main.cpp
 
 DESTDIR = $$PWD/../out
 
 SUBDIRS += \
+    factory.pro \
     factory.pro \
     factory.pro \
     factory.pro
@@ -29,6 +32,10 @@ HEADERS += \
     csharpfactory.h \
     csharpmethodunit.h \
     csharpprintoperatorunit.h \
+    javaclassunit.h \
+    javafactory.h \
+    javamethodunit.h \
+    javaprintoperatorunit.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h
