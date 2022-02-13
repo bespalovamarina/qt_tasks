@@ -1,6 +1,6 @@
 QT += core gui widgets
 
-CONFIG += c++11
+CONFIG += c++11 console
 CONFIG -= console
 
 SOURCES += \
@@ -19,9 +19,6 @@ HEADERS += \
     filestatmodel.h \
     groupfilestrategy.h \
     listfilestrategy.h
-
-SUBDIRS += \
-    filewatcher.pro
 
 FORMS += \
     directorystatsmainwindow.ui
