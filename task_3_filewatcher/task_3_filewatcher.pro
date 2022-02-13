@@ -20,8 +20,5 @@ HEADERS += \
     groupfilestrategy.h \
     listfilestrategy.h
 
-SUBDIRS += \
-    filewatcher.pro
-
 FORMS += \
     directorystatsmainwindow.ui
