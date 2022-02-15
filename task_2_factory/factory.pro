@@ -13,13 +13,7 @@ SOURCES += \
         javamethodunit.cpp \
         main.cpp
 
-DESTDIR = $$PWD/../out
-
-SUBDIRS += \
-    factory.pro \
-    factory.pro \
-    factory.pro \
-    factory.pro
+DESTDIR = $PWD/../out
 
 HEADERS += \
     abstractfactory.h \
