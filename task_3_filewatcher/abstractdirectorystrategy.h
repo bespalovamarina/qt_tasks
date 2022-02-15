@@ -3,9 +3,6 @@
 #include <QFileInfo>
 #include <QMap>
 
-/*!
- * \brief The AbstractDirectoryStrategy будет использоваться в модельке, где папка существует.
- */
 class AbstractDirectoryStrategy
 {
 public:

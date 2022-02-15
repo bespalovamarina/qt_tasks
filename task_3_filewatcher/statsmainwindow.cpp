@@ -70,6 +70,9 @@ void StatsMainWindow::chooseTreeFolder(const QString &path)
 
     if (!ui->filesTreeView->selectionModel()->selectedIndexes().isEmpty()) {
         handleTreeSelection(ui->filesTreeView->selectionModel()->selectedIndexes().first());
+    } else {
+        m_currentStatRoot = ui->dirLineEdit->text();
+        updateStatsViews();
     }
 }
 

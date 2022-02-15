@@ -27,7 +27,7 @@ public slots:
 
 protected:
     virtual QtCharts::QAbstractSeries* createSeriesData(const QMap<QString, double>&  cachedData) = 0;
-    virtual void afterUpdate(QtCharts::QAbstractSeries *series) {}
+    virtual void afterUpdate(QtCharts::QAbstractSeries *) {}
 
 protected:
     QSharedPointer<QtCharts::QChart> m_chart;

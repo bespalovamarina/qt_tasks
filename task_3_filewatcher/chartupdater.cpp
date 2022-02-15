@@ -10,8 +10,6 @@
 
 #include "filestatmodel.h"
 
-//#include <
-
 ChartUpdater::ChartUpdater(const QSharedPointer<QtCharts::QChart> &chart
                            , CustomFileModel *model, QObject *parent)
     : QObject(parent)
@@ -36,10 +34,10 @@ void ChartUpdater::setEnabled(bool enabled)
 void ChartUpdater::updateStatistics(const QMap<QString, double> &cachedData)
 {
     if (m_enabled) {
-        m_chart->removeAllSeries(); // 1
-        auto *series = createSeriesData(cachedData); // 2
-        m_chart->addSeries(series); // 3
-        afterUpdate(series); // 4
+        m_chart->removeAllSeries();
+        auto *series = createSeriesData(cachedData);
+        m_chart->addSeries(series);
+        afterUpdate(series);
     }
 }
 
