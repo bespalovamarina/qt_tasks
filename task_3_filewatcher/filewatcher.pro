@@ -1,6 +1,6 @@
 QT += core gui widgets charts
 
-CONFIG += c++11
+CONFIG += c++11 console
 CONFIG -= console
 
 SOURCES += \

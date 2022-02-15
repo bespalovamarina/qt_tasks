@@ -15,12 +15,6 @@ SOURCES += \
 
 DESTDIR = $$PWD/../out
 
-SUBDIRS += \
-    factory.pro \
-    factory.pro \
-    factory.pro \
-    factory.pro
-
 HEADERS += \
     abstractfactory.h \
     classunit.h \
