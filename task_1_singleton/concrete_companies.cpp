@@ -38,3 +38,15 @@ double SocialNetworkCompany::getMonthlyTaxes() const
 {
     return companyIncome * (0.2 + 0.02 * employeeNumber);
 }
+
+// -------------------------------------------------------------------------------------
+
+AbstractCompany::CompanyType CarCompany::getCompanyType() const
+{
+    return CAR_COMPANY_TYPE;
+}
+
+double CarCompany::getMonthlyTaxes() const
+{
+    return companyIncome * 0.23 + employeeNumber * 0.01;
+}

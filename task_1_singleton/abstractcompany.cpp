@@ -3,12 +3,11 @@
 
 QStringList AbstractCompany::CompanyTypeNames ={
     "HEAVY_INDUSTRY_COMPANY_TYPE",
-    "AGRICULTURAL_COMPANY_TYPE",
     "OIL_COMPANY_TYPE",
     "FISHING_COMPANY_TYPE",
     "IT_COMPANY_TYPE",
-    "GOVERNMENT_COMPANY_TYPE",
-    "FINANCIAL_COMPANY_TYPE"
+    "CAR_COMPANY_TYPE",
+    ""
 };
 
 AbstractCompany::AbstractCompany(const QString &name)

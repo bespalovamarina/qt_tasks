@@ -9,10 +9,11 @@ class AbstractCompany
 public:
     enum CompanyType
     {
-        HEAVY_INDUSTRY_COMPANY_TYPE = 1,
+        HEAVY_INDUSTRY_COMPANY_TYPE,
         OIL_COMPANY_TYPE,
         FISHING_COMPANY_TYPE,
         IT_COMPANY_TYPE,
+        CAR_COMPANY_TYPE,
         COMPANY_TYPE_COUNT
     };
     static QStringList CompanyTypeNames;

@@ -49,7 +49,7 @@ void FillCompanyData()
     lol->setEmployeeNumber(30000);
     data.append(lol);
 
-    for (int j = 0 ; j < 3; ++j) {
+    for (int j = 0 ; j < 4; ++j) {
         QSharedPointer<AbstractCompany> firm;
         for (int i = 0 ; i < 7; ++i) {
             QString companyName = names[rand() % names.size()] + QString::number(rand() % 101);
@@ -60,6 +60,8 @@ void FillCompanyData()
                 firm = QSharedPointer<CaviarCompany>::create(companyName); break;
             case 2:
                 firm = QSharedPointer<SocialNetworkCompany>::create(companyName); break;
+            case 3:
+                firm =  QSharedPointer<CarCompany>::create(companyName); break;
             default:
                 continue;
             }
@@ -74,6 +76,17 @@ void FillCompanyData()
     for (const auto& c : data) {
         CompanyRegistry::Instance().addCompany(c);
     }
+}
+
+void GetCompanyStats(const QString &label, const QSharedPointer<AbstractCompany> &company)
+{
+    qInfo().noquote() << QString("Stats for company type %1:").arg(label) << "\n"
+            << QString("Name: %1 Income = %2, Taxes= %3, Avg. Empl. = %4, Area = %5")
+               .arg(company->getCompanyName())
+               .arg(company->getCompanyIncome())
+               .arg(company->getMonthlyTaxes())
+               .arg(company->getEmployeeNumber())
+               .arg(company->getCompanyArea());
 }
 
 void GetCompanyGroupStats(const QString &label, const QList<QSharedPointer<AbstractCompany>> &group)
@@ -110,11 +123,12 @@ void ListCompaniesByType(AbstractCompany::CompanyType type)
     for(int i = 0; i < CompanyRegistry::Instance().getCompaniesCount(); ++i) {
         auto firm = CompanyRegistry::Instance().getCompanyByIndex(i);
         if (firm->getCompanyType() == type) {
-            typeGroup.append(firm);
+            GetCompanyStats(AbstractCompany::CompanyTypeNames[type], firm);
+//            typeGroup.append(firm);
         }
     }
 
-    GetCompanyGroupStats(AbstractCompany::CompanyTypeNames[type], typeGroup);
+//    GetCompanyGroupStats(AbstractCompany::CompanyTypeNames[type], typeGroup);
 }
 
 void ListCompaniesByOwner(const QString& owner)

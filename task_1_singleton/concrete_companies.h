@@ -32,3 +32,14 @@ class SocialNetworkCompany : public AbstractCompany
 
     double getMonthlyTaxes() const;
 };
+
+// -------------------------------------------------------------------------------------
+
+class CarCompany : public AbstractCompany
+{
+    using AbstractCompany::AbstractCompany;
+
+    CompanyType getCompanyType() const;
+
+    double getMonthlyTaxes() const;
+};
