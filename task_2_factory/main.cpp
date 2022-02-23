@@ -14,7 +14,7 @@ std::string generateProgram(AbstractFactory* factory)
 
     myClass->add(factory->CreateMethodUnit("testFunc1", "void", 0), ClassUnit::PUBLIC);
     myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC), ClassUnit::PRIVATE);
-    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST), ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::FINAL), ClassUnit::PUBLIC);
     std::shared_ptr<MethodUnit> method = factory->CreateMethodUnit("testFunc4", "void", MethodUnit::STATIC);
     method->add(factory->CreatePrintOperator(R"(Hello, world!\n)"));
     myClass->add(method, ClassUnit::PROTECTED);

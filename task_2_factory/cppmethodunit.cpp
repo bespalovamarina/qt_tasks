@@ -21,11 +21,21 @@ std::string CppMethodUnit::compile(unsigned int level) const
     {
         result += "virtual ";
     }
+
     result += m_returnType + " ";
     result += m_name + "()";
-    if(m_flags & MethodUnit::Modifier::CONST)
+
+    if(m_flags & ~MethodUnit::Modifier::STATIC)
     {
-        result += " const";
+        if(m_flags & MethodUnit::Modifier::CONST)
+        {
+            result += " const";
+        }
+
+        if(m_flags & MethodUnit::Modifier::FINAL)
+        {
+            result += " final";
+        }
     }
 
     result += " {\n";

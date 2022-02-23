@@ -21,8 +21,7 @@ std::string JavaMethodUnit::compile(unsigned int level) const
     {
         result += "abstract ";
     }
-
-    if (m_flags & MethodUnit::Modifier::FINAL)
+    else if (m_flags & MethodUnit::Modifier::FINAL)
     {
         result += "final ";
     }

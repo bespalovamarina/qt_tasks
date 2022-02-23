@@ -44,6 +44,8 @@ QVariant CustomFileModel::data(const QModelIndex &index, int role) const
 
         if (index.column() == 1) {
             double val = 100. * m_cachedStats.values()[index.row()];
+            if (qFuzzyCompare(val, 0.))
+                return "0 (empty)";
             if (val < 0.01)
                 return "< 0.01%";
 
